@@ -39,3 +39,7 @@ def add_numbers():
         return jsonify({"error": "All elements must be numbers"}), 400
 
     return jsonify({"sum": sum(numbers)})
+
+@app.route("/health")
+def health_check():
+    return "OK", 200
