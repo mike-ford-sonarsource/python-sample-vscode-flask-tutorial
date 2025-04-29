@@ -41,8 +41,6 @@ def add_numbers():
     finally:
         if len(numbers) == 0:
             return jsonify({"error": "List cannot be empty"}), 400
-        else:
-            continue
 
 @app.route("/health")
 def health_check():
