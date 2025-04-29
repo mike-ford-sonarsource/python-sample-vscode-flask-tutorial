@@ -35,7 +35,13 @@ def add_numbers():
 
     try:
         numbers = [float(num) for num in data]
+        return jsonify({"sum": sum(numbers)})
     except ValueError:
         return jsonify({"error": "All elements must be numbers"}), 400
+    finally:
+        if len(numbers) == 0:
+            return jsonify({"error": "List cannot be empty"}), 400
 
-    return jsonify({"sum": sum(numbers)})
+@app.route("/health")
+def health_check():
+    return "OK", 200
